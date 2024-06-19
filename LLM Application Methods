@@ -1,0 +1,15 @@
+# Manufacturer keywords filtering
+We experimented with different methods of prompt writing, i.e., zero-shot and few-shot methods \cite{dang2022prompt}. In the zero-shot example, we explained in words what we wanted to achieve in the prompt like in the example prompt below:
+
+\begin{quote}
+I am going to give a list of companies. I need a list of keywords that I can use to search for CVEs related to the products of these companies. Can you filter the list to remove duplicates and clean the keywords of unnecessary words or characters to make keywords that do not give too many false positives while searching for CVEs in an automated manner? You can also maybe break the terms into separate keywords in case a company can be identified by only parts of its names. Or you can remove unnecessary words from the terms if the company can be identified by just one word. Here is the list: + <DnvData>    
+\end{quote}
+
+In the few-shot trial, we further provided the model with some examples as shown below:
+
+\begin{verbatim}
+    Here are a few examples:
+        'Furuno Electric' -> 'Furuno'
+        'Panasia Co., Ltd.' -> 'Panasia'
+        'PC Maritime Ltd.' -> 'PC Maritime'
+\end{verbatim}
