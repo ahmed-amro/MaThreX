@@ -13,3 +13,15 @@ In the few-shot trial, we further provided the model with some examples as shown
         'Panasia Co., Ltd.' -> 'Panasia'
         'PC Maritime Ltd.' -> 'PC Maritime'
 \end{verbatim}
+
+
+# Related maritime CVE filtering
+The following context and prompt were provided to the GPT-4 model for this purpose:
+
+\begin{quote}
+"role":"system","content": "You detect whether a given CVE is related to a device, system, equipment, etc that might be used in ships or other offshore maritime assets. You return a 'yes' if it could be, or 'no' otherwise",  
+\end{quote}
+
+\begin{quote}
+"role":"user", "content":"This is the cve" + cve + ". And, here is its description from NVD database: " + description + "Determine whether the device might be used in maritime assets based on this description. As a hint, it could be anything e.g. radars, vsat, control systems, engine controls, PLC or anything else. You have to infer just from the available information. Return yes or no."
+\end{quote}
